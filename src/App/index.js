@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import Media from "react-media"
+import Helmet from "react-helmet"
 
 class App extends Component {
   constructor(props) {
@@ -26,22 +27,21 @@ updateWindowWidth = () => {
   })
 }
 
-// screenWidth = (evt) => {
-//   this.setState ({
-//     width: Number(evt.target.value)
-//   })
-// }
-
   render() {
     console.log(this.state.width)
     return (
     <div className="App">
-      <Media query="(width)">
+      <Media query="(max-width: 750px)">
         {matches => 
           matches? (
             <p>This document is {this.state.width}px wide</p>
           ) : (
-            <p>JK...this document is more than 750px</p>
+            <div>
+              <Helmet>
+                <style>{'body {background-color: red;}'}</style>
+              </Helmet>
+              <p>JK...this document is {this.state.width}px wide</p>
+            </div>
           )
           }
       </Media>
