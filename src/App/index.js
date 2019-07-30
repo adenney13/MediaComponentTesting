@@ -8,7 +8,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      width: null
+      width: null,
+      height: null
     }
   }
 
@@ -23,28 +24,54 @@ componentWillUnmount() {
 
 updateWindowWidth = () => {
   this.setState ({
-    width: window.innerWidth
+    width: window.innerWidth,
+    height: window.innerHeight
   })
 }
 
   render() {
-    console.log(this.state.width)
+    // console.log(this.state.width)
+    // console.log(this.state.height)
     return (
     <div className="App">
-      <Media query="(max-width: 750px)">
+    <Media query={{maxWidth: 400, maxHeight: 700}}>
         {matches => 
           matches? (
-            <p>This document is {this.state.width}px wide</p>
+            <p>Galaxy</p>
+          ) : (
+            <div>
+              <p></p>
+            </div>
+          )
+          }
+      </Media>
+   {/* <div> */}
+   {/* <Media query="(max-width: 750px)">
+    {matches =>
+      matches? (
+        <p>I am Galaxy</p>
+      ) : (
+        <p>Not</p>)} 
+    }
+    </Media>  */}
+  {/* <Media query= "(max-width: 411px), (max-height: 731px)"  
+    render={() => <span>I am Pixel</span>} /> */}
+    {/* <Media query={{ minWidth: "(800px)" }} render={() => <span>I am medium</span>}/> */}
+    {/* </div> */}
+      {/* <Media query="(max-width: 750px)">
+        {matches => 
+          matches? (
+            <p>This document is {this.state.width}px wide and {this.state.height}px tall</p>
           ) : (
             <div>
               <Helmet>
                 <style>{'body {background-color: red;}'}</style>
               </Helmet>
-              <p>JK...this document is {this.state.width}px wide</p>
+              <p>JK...this document is {this.state.width}px wide and {this.state.height}px tall</p>
             </div>
           )
           }
-      </Media>
+      </Media> */}
     </div>
     )
   }
