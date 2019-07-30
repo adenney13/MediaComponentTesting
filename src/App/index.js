@@ -42,6 +42,13 @@ updateWindowWidth = () => {
     return (
     <div className="App">
       <p>This document is {this.state.width}px wide and {this.state.height}px tall</p>
+      <p>iPhone 5: 320px wide & 568px tall</p>
+      <p>For Galaxy S5: 360px wide & 640px tall</p>
+      <p>For Pixel 2: 411px wide & 731px tall</p>
+      <p>For Pixel 2 XL: 411px wide & 823px tall</p>
+      <p>For iPhone 6/7/8: 375px wide & 667px tall</p>
+      <p>For iPhone 6/7/8 Plus: 414px wide & 736px tall</p>
+      <p>For iPhone X: 375px wide & 812px tall</p>
       <Media query={{maxWidth: 320, maxHeight: 568}} render={()=> <p><img src={iPhone5} alt="iPhone5"/></p>}/>
       <Media query={{minWidth: 321, maxWidth: 360, minHeight: 569, maxHeight: 640}} render={()=> <p><img src={Samsung} alt="Galaxy S5"/>Galaxy S5</p>}/>
       <Media query={{minWidth: 361, maxWidth: 411, minHeight: 641, maxHeight: 731}} render={()=> <p><img src={Pixel2} alt="Pixel 2"/>Pixel 2</p>}/>
