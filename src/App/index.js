@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import Media from "react-media"
+import Samsung from "../Assets/Samsung_Galaxy_S5.png"
 import Helmet from "react-helmet"
 
 class App extends Component {
@@ -34,17 +35,26 @@ updateWindowWidth = () => {
     // console.log(this.state.height)
     return (
     <div className="App">
-    <Media query={{maxWidth: 400, maxHeight: 700}}>
+      <p>This document is {this.state.width}px wide and {this.state.height}px tall</p>
+      <Media query={{maxWidth: 320, maxHeight: 568}} render={()=> <p>iPhone 5</p>}/>
+      <Media query={{minWidth: 321, maxWidth: 360, minHeight: 569, maxHeight: 640}} render={()=> <p><img src={Samsung} alt="Galaxy S5"/></p>}/>
+      <Media query={{minWidth: 361, maxWidth: 411, minHeight: 641, maxHeight: 731}} render={()=> <p>Pixel 2</p>}/>
+      <Media query={{minWidth: 361, maxWidth: 411, minHeight: 732, maxHeight: 823}} render={()=> <p>Pixel 2XL</p>}/>
+      <Media query={{minWidth: 361, maxWidth: 375, minHeight: 569, maxHeight: 667}} render={()=> <p>iPhone 6/7/8</p>}/>
+      <Media query={{minWidth: 376, maxWidth: 414, minHeight: 666, maxHeight: 736}} render={()=> <p>iPhone 6/7/8 Plus</p>}/>
+      <Media query={{minWidth: 361, maxWidth: 375, minHeight: 737, maxHeight: 812}} render={()=> <p>iPhone X</p>}/> 
+      {/* <Media query={{minWidth: 361, maxWidth: 411, minHeight: 641, maxHeight: 731}}>
         {matches => 
           matches? (
-            <p>Galaxy</p>
+            <p>Pixel 2</p>
           ) : (
             <div>
               <p></p>
             </div>
           )
           }
-      </Media>
+      </Media> */}
+      
    {/* <div> */}
    {/* <Media query="(max-width: 750px)">
     {matches =>
