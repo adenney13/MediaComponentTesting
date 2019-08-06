@@ -7,9 +7,11 @@ import iPhone6 from "../Assets/iPhone6.png"
 import Pixel2 from  "../Assets/Pixel2.png"
 import Pixel2_XL from "../Assets/Pixel2_XL.png"
 import iPhoneX from "../Assets/iPhoneX.png"
+import View from './View/view.js'
 
 import Helmet from "react-helmet"
-
+const heightOutput = document.querySelector('#view')
+  const widthOutput = document.querySelector('#view')
 class App extends Component {
   constructor(props) {
     super(props)
@@ -18,44 +20,58 @@ class App extends Component {
       width: null,
       height: null
     }
+    
   }
 
+ 
+
 componentDidMount() {
+ 
   this.updateWindowWidth();
-  window.addEventListener('resize', this.updateWindowWidth)
+  
 }
 
-componentWillUnmount() {
-  window.removeEventListener('resize', this.updateWindowWidth)
-}
+// componentWillUnmount() {
+//   window.removeEventListener('resize', this.updateWindowWidth)
+// }
 
 updateWindowWidth = () => {
+  window.addEventListener('resize', this.updateWindowWidth)
   this.setState ({
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerWidth
   })
 }
+
+
+
 
   render() {
     // console.log(this.state.width)
     // console.log(this.state.height)
+   
+   console.log(this.state)
+   console.log(this.reportWindowSize)
     return (
     <div className="App">
-      <p>This document is {this.state.width}px wide and {this.state.height}px tall</p>
-      <p>iPhone 5: 320px wide & 568px tall</p>
+    <p>This document is {this.state.width}px wide and {this.state.height}px tall</p>
+    <View id="view"/>
+      {/* <p>iPhone 5: 320px wide & 568px tall</p>
       <p>For Galaxy S5: 360px wide & 640px tall</p>
       <p>For Pixel 2: 411px wide & 731px tall</p>
       <p>For Pixel 2 XL: 411px wide & 823px tall</p>
       <p>For iPhone 6/7/8: 375px wide & 667px tall</p>
       <p>For iPhone 6/7/8 Plus: 414px wide & 736px tall</p>
-      <p>For iPhone X: 375px wide & 812px tall</p>
-      <Media query={{maxWidth: 320, maxHeight: 568}} render={()=> <p><img src={iPhone5} alt="iPhone5"/></p>}/>
-      <Media query={{minWidth: 321, maxWidth: 360, minHeight: 569, maxHeight: 640}} render={()=> <p><img src={Samsung} alt="Galaxy S5"/>Galaxy S5</p>}/>
-      <Media query={{minWidth: 361, maxWidth: 411, minHeight: 641, maxHeight: 731}} render={()=> <p><img src={Pixel2} alt="Pixel 2"/>Pixel 2</p>}/>
-      <Media query={{minWidth: 361, maxWidth: 411, minHeight: 732, maxHeight: 823}} render={()=> <p><img src={Pixel2_XL} alt="Pixel 2 XL"/>Pixel 2 XL</p>}/>
-      <Media query={{minWidth: 361, maxWidth: 375, minHeight: 569, maxHeight: 667}} render={()=> <p><img src={iPhone6} alt="iPhone6"/>iPhone 6/7/8</p>}/>
-      <Media query={{minWidth: 376, maxWidth: 414, minHeight: 666, maxHeight: 736}} render={()=> <p><img src={iPhone6} alt="iPhone6 Plus"/>iPhone 6/7/8 Plus</p>}/>
-      <Media query={{minWidth: 361, maxWidth: 375, minHeight: 737, maxHeight: 812}} render={()=> <p><img src={iPhoneX} alt="iPhone X"/>iPhone X</p>}/> 
+      <p>For iPhone X: 375px wide & 812px tall</p> */}
+        
+        {/* <Media query={{maxWidth: 320, maxHeight: 568}} render={()=> <p><img src={iPhone5} alt="iPhone5"/></p>}/>
+        <Media query={{minWidth: 321, maxWidth: 360, minHeight: 569, maxHeight: 640}} render={()=> <p><img src={Samsung} alt="Galaxy S5"/>Galaxy S5</p>}/>
+        <Media query={{minWidth: 361, maxWidth: 411, minHeight: 641, maxHeight: 731}} render={()=> <p><img src={Pixel2} alt="Pixel 2"/>Pixel 2</p>}/>
+        <Media query={{minWidth: 361, maxWidth: 411, minHeight: 732, maxHeight: 823}} render={()=> <p><img src={Pixel2_XL} alt="Pixel 2 XL"/>Pixel 2 XL</p>}/>
+        <Media query={{minWidth: 361, maxWidth: 375, minHeight: 569, maxHeight: 667}} render={()=> <p><img src={iPhone6} alt="iPhone6"/>iPhone 6/7/8</p>}/>
+        <Media query={{minWidth: 376, maxWidth: 414, minHeight: 666, maxHeight: 736}} render={()=> <p><img src={iPhone6} alt="iPhone6 Plus"/>iPhone 6/7/8 Plus</p>}/>
+        <Media query={{minWidth: 361, maxWidth: 375, minHeight: 737, maxHeight: 812}} render={()=> <p><img src={iPhoneX} alt="iPhone X"/>iPhone X</p>}/>  */}
+    
       {/* <Media query={{minWidth: 361, maxWidth: 411, minHeight: 641, maxHeight: 731}}>
         {matches => 
           matches? (
@@ -95,6 +111,7 @@ updateWindowWidth = () => {
           )
           }
       </Media> */}
+     
     </div>
     )
   }
