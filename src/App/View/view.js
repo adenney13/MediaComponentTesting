@@ -1,12 +1,13 @@
 import React from "react"
 
 const View = (props) => {
-    console.log(props.height)
+    console.log(props)
     console.log(`this is ${props.height}`)
-    
+    const thisWidth = window.innerWidth
+    const thisHeight = window.innerHeight
     return (
         <div id = "view">
-           {props.windowWidth}
+           <p>Suckit</p>
         </div>
     )
 }

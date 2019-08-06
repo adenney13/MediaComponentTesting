@@ -10,8 +10,9 @@ import iPhoneX from "../Assets/iPhoneX.png"
 import View from './View/view.js'
 
 import Helmet from "react-helmet"
-const heightOutput = document.querySelector('#view')
-  const widthOutput = document.querySelector('#view')
+// const heightOutput = document.getElementById('view')
+// const widthOutput = document.getElementById('view')
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -19,29 +20,39 @@ class App extends Component {
     this.state = {
       width: null,
       height: null
+      
+      
     }
-    
+    // this.updateWindowWidth =this.updateWindowWidth.bind(this)
   }
 
  
 
 componentDidMount() {
- 
-  this.updateWindowWidth();
+  const height = this.divElement.clientHeight
+  const width = this.divElement.clientWidth
+  this.setState({ height, width })
+// this.getWindowSize()
   
 }
 
+// getWindowSize = () => {
+//   this.setState({
+//       // width: widthOutput,
+//       height: heightOutput.offsetHeight
+//     })
+// }
 // componentWillUnmount() {
 //   window.removeEventListener('resize', this.updateWindowWidth)
 // }
 
-updateWindowWidth = () => {
-  window.addEventListener('resize', this.updateWindowWidth)
-  this.setState ({
-    width: window.innerWidth,
-    height: window.innerWidth
-  })
-}
+// updateWindowWidth () {
+//   window.addEventListener('onresize', this.updateWindowWidth)
+//   this.setState ({
+//     width: heightOutput.innerWidth,
+//     height: heightOutput.innerWidth
+//   })
+// }
 
 
 
@@ -49,13 +60,20 @@ updateWindowWidth = () => {
   render() {
     // console.log(this.state.width)
     // console.log(this.state.height)
-   
+ 
+    
+
    console.log(this.state)
    console.log(this.reportWindowSize)
     return (
     <div className="App">
     <p>This document is {this.state.width}px wide and {this.state.height}px tall</p>
-    <View id="view"/>
+    
+      <div 
+        id="view"
+        ref={ (divElement) => this.divElement = divElement}>
+
+      </div>
       {/* <p>iPhone 5: 320px wide & 568px tall</p>
       <p>For Galaxy S5: 360px wide & 640px tall</p>
       <p>For Pixel 2: 411px wide & 731px tall</p>
